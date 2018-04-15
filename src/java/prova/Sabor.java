@@ -10,13 +10,13 @@ package prova;
  *
  * @author bruno.szczuk
  */
-public class Sabores {
+public class Sabor {
     private String sabor;
 
-    public Sabores() {
+    public Sabor() {
     }
 
-    public Sabores(String sabor) {
+    public Sabor(String sabor) {
         this.sabor = sabor;
     }
     

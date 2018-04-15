@@ -16,7 +16,7 @@ import java.util.List;
 public class Pizza {
     private int id;
     private String tamanho;
-    private List<Sabores> sabores;
+    private List<Sabor> sabores;
 
     public Pizza() {
     }
@@ -37,11 +37,11 @@ public class Pizza {
         this.tamanho = tamanho;
     }
 
-    public List<Sabores> getSabores() {
+    public List<Sabor> getSabores() {
         return sabores;
     }
 
-    public void setSabores(List<Sabores> sabores) {
+    public void setSabores(List<Sabor> sabores) {
         this.sabores = sabores;
     }
 
