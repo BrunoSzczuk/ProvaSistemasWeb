@@ -10,18 +10,24 @@
     ArrayList pizzas = (ArrayList) application.getAttribute("pizzas");
     Pizza p = new Pizza();
     String sabores[] = request.getParameterValues("sabores");
+    String tamanho = request.getParameter("tamanho");
+    if (sabores == null) {
+        throw new Exception("Nenhum sabor de pizza foi selecionado");
+    } else if (tamanho == null) {
+        throw new Exception("Nenhum tamanho de pizza foi selecionado");
+    }
     ArrayList sab = new ArrayList();
-    for (int i = 0; i < sabores.length; i++){
+    for (int i = 0; i < sabores.length; i++) {
         sab.add(new Sabor(sabores[i]));
     }
     p.setSabores(sab);
-    p.setId(pizzas.size() +1);
-    p.setTamanho(request.getParameter("tamanho"));
+    p.setId(pizzas.size() + 1);
+    p.setTamanho(tamanho);
     pizzas.add(p);
     application.setAttribute("pizzas", pizzas);
-    
+
 %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page  errorPage="erro.jsp" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,8 +35,10 @@
         <title>Pizza Adicionada</title>
     </head>
     <body>
+    <center>
         <h2>Pizza Adicionada com sucesso!</h2>
         <input type="button" value="Início" 
                onclick="document.location = 'home.jsp';"/>
-    </body>
+    </center>
+</body>
 </html>
