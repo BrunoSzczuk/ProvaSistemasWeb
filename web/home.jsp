@@ -77,6 +77,8 @@
         </table>
         <input type="button" onclick="document.location = 'pedirpizza.jsp'" value="Pedir uma pizza">
         <input type="button" onclick="document.location = 'index.jsp'" value="Voltar">
+        <br/>
+        <a href="./cadastrarsabor.jsp"> Sugerir novos sabores! (Servlet) </a>
     </center>
 </body>
 </html>

@@ -9,8 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <script src="validacao_form.js" type="text/javascript"></script>
+        <title>Novo pedido</title>
+        <script src="js/validacao_form.js" type="text/javascript"></script>
     </head>
     <body>
         <form action="adicionapizza.jsp" method="POST" name ="main">
