@@ -31,11 +31,11 @@
                         <input type="radio" name="tamanho" onchange="validarCampoTamanho();" value="G"> Grande<br/>
                     </td>
                     <td>
-                        <input type="checkbox"  onfocus="validaSabores();" name="sabores" value="Calabresa"/>Calabresa <br/>
-                        <input type="checkbox" onfocus="validaSabores();" name="sabores" value="Mussarela"/>Mussarela<br/>
-                        <input type="checkbox" onfocus="validaSabores();" name="sabores" value="Bacon"/>Bacon<br/>
-                        <input type="checkbox" onfocus="validaSabores();" name="sabores" value="Chocolate Branco"/>Chocolate Branco<br/>
-                        <input type="checkbox" onfocus="validaSabores();" name="sabores" value="Chocolate Preto"/>Chocolate Preto<br/>
+                        <input type="checkbox"    onchange="validaSabores();" name="sabores" value="Calabresa"/>Calabresa <br/>
+                        <input type="checkbox" onchange="validaSabores();" name="sabores" value="Mussarela"/>Mussarela<br/>
+                        <input type="checkbox" onchange="validaSabores();" name="sabores" value="Bacon"/>Bacon<br/>
+                        <input type="checkbox" onchange="validaSabores();" name="sabores" value="Chocolate Branco"/>Chocolate Branco<br/>
+                        <input type="checkbox" onchange="validaSabores();" name="sabores" value="Chocolate Preto"/>Chocolate Preto<br/>
                     </td>
                 </tr>
             </table>

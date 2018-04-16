@@ -38,11 +38,11 @@ function validaSabores() {
             tipos_selecionados += 1;
         }
     }
-    if (tipos_selecionados === tamanho_maximo) {
-        for (contador = 0; contador <= 4; contador++) {
-            if (!document.main.sabores[contador].checked) {
-                document.main.sabores[contador].disabled = true;
-            }
+
+    for (contador = 0; contador <= 4; contador++) {
+        if (!document.main.sabores[contador].checked) {
+            document.main.sabores[contador].disabled = tipos_selecionados === tamanho_maximo;
         }
     }
+
 }

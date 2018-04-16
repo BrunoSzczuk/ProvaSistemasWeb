@@ -20,7 +20,7 @@
                 } else if (tipo.equals("prova.UsuarioInvalido")) {
                     causa = "Usuário ou senha inválida";
                     sugestao = "Insira um usuário válido (admin).";
-                }
+                } 
         %>
         <ul>
             <li>Tipo do erro: <b><%= tipo%></b>

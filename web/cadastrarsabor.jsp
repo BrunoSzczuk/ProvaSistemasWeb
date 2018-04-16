@@ -30,6 +30,8 @@
                     </tr>
                 </table>
                 <button type="submit">Enviar </button>    
+                <input type="button" value="Início" 
+                       onclick="document.location = 'home.jsp';"/>
             </center>    
         </form>
     </body>
