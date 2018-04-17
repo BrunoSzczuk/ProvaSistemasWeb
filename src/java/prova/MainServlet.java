@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package prova;
 
 import java.io.IOException;
@@ -31,7 +30,7 @@ public class MainServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         String nome = request.getParameter("nome");
+        String nome = request.getParameter("nome");
         String email = request.getParameter("email");
         String sabores = request.getParameter("sabores");
         try (PrintWriter out = response.getWriter()) {
@@ -57,9 +56,11 @@ public class MainServlet extends HttpServlet {
             out.println("Sugestão:");
             out.println("</td></tr>");
             out.println("<tr><td>");
-            out.println("<b>" +sabores + "</b>");
+            out.println("<b>" + sabores + "</b>");
             out.println("</td></tr>");
             out.println("</table>");
+            out.println("<input type=\"button\" value=\"Início\" \n"
+                    + "                       onclick=\"document.location = 'home.jsp';\"/>");
             out.println("</ center>");
             out.println("</body>");
             out.println("</html>");
