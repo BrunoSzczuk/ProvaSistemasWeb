@@ -3,8 +3,8 @@
     Created on : 14/04/2018, 10:57:30
     Author     : bruno.szczuk
 --%>
-<%@page import="prova.Sabor"%>
-<%@page import="prova.Pizza"%>
+<%@page import="prova.obj.Sabor"%>
+<%@page import="prova.obj.Pizza"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="prova.UsuarioInvalido"%>
 <%
@@ -78,7 +78,6 @@
         <input type="button" onclick="document.location = 'pedirpizza.jsp'" value="Pedir uma pizza">
         <input type="button" onclick="document.location = 'index.jsp'" value="Voltar">
         <br/>
-        <a href="./cadastrarsabor.jsp"> Sugerir novos sabores! (Servlet) </a>
     </center>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package prova;
+package prova.obj;
 
 
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class Pizza {
     private int id;
-    private String tamanho;
+    private Tamanho tamanho;
     private List<Sabor> sabores;
 
     public Pizza() {
@@ -29,11 +29,11 @@ public class Pizza {
         this.id = id;
     }
 
-    public String getTamanho() {
+    public Tamanho getTamanho() {
         return tamanho;
     }
 
-    public void setTamanho(String tamanho) {
+    public void setTamanho(Tamanho tamanho) {
         this.tamanho = tamanho;
     }
 

@@ -1,4 +1,4 @@
-package prova;
+package prova.obj;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -10,7 +10,7 @@ package prova;
  *
  * @author bruno.szczuk
  */
-public class Sabor {
+public class Sabor{
     private String sabor;
 
     public Sabor() {
