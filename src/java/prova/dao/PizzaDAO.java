@@ -5,6 +5,7 @@
  */
 package prova.dao;
 
+import java.sql.PreparedStatement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import prova.obj.Pizza;
@@ -16,7 +17,7 @@ import prova.obj.Pizza;
 public class PizzaDAO {
 
     public void incluir(Pizza p) throws Exception {
-        String sql = String.format("  ");
-        Conexao.atualizar(sql); //Banco Postgre
+        String sql = String.format(" insert into pizza () ");
+        PreparedStatement stm = Conexao.getStatement(sql); //Banco Postgre
     }
 }

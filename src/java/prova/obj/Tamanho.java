@@ -14,7 +14,35 @@ import java.io.Serializable;
  */
 public class Tamanho implements Serializable{
     String descricao;
+    String sigla;
+    int qtSabores;
 
+    public Tamanho(String descricao, String sigla, int qtSabores) {
+        this.descricao = descricao;
+        this.sigla = sigla;
+        this.qtSabores = qtSabores;
+    }
+
+    public int getQtSabores() {
+        return qtSabores;
+    }
+
+    public void setQtSabores(int qtSabores) {
+        this.qtSabores = qtSabores;
+    }
+
+    public Tamanho(String descricao, String sigla) {
+        this.descricao = descricao;
+        this.sigla = sigla;
+    }
+
+    public String getSigla() {
+        return sigla;
+    }
+
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
+    }
     public Tamanho(String descricao) {
         this.descricao = descricao;
     }

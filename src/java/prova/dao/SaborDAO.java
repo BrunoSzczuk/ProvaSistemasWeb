@@ -17,7 +17,7 @@ public class SaborDAO {
     
     public static void incluir(Sabor sabor) throws Exception{
         String sql = String.format("  insert into sabor(nome) values(?) ");
-        PreparedStatement pr =  Conexao.getConnect().prepareStatement(sql);
+        PreparedStatement pr =  Conexao.getStatement(sql);
         pr.setString(1, sabor.getSabor());
         pr.execute();
     }

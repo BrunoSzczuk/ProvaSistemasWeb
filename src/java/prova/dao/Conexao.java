@@ -76,4 +76,7 @@ public class Conexao {
         return pstmt;
     }
 
+    public static boolean execute(String sql) throws Exception {
+        return getStatement().execute(sql);
+    }
 }

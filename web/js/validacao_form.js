@@ -15,7 +15,7 @@ function validarCampoTamanho() {
     } else {
         tamanho_maximo = 4;
     }
-    for (contador = 0; contador <= 4; contador++) {
+    for (contador = 0; contador <= tamanho_maximo; contador++) {
         if (document.main.sabores[contador].checked) {
             tipos_selecionados += 1;
         }
@@ -33,13 +33,13 @@ function validarCampoTamanho() {
 function validaSabores() {
     document.getElementById("msg_erro").innerHTML = "";
     tipos_selecionados = 0;
-    for (contador = 0; contador <= 4; contador++) {
+    for (contador = 0; contador <= tamanho_maximo; contador++) {
         if (document.main.sabores[contador].checked) {
             tipos_selecionados += 1;
         }
     }
 
-    for (contador = 0; contador <= 4; contador++) {
+    for (contador = 0; contador <= tamanho_maximo; contador++) {
         if (!document.main.sabores[contador].checked) {
             document.main.sabores[contador].disabled = tipos_selecionados === tamanho_maximo;
         }

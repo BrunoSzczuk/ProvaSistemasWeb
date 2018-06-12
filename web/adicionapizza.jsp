@@ -3,9 +3,9 @@
     Created on : 14/04/2018, 21:22:56
     Author     : Bruno
 --%>
-<%@page import="prova.Sabor"%>
+<%@page import="prova.obj.Sabor"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="prova.Pizza"%>
+<%@page import="prova.obj.Pizza"%>
 <%
     ArrayList pizzas = (ArrayList) application.getAttribute("pizzas");
     Pizza p = new Pizza();

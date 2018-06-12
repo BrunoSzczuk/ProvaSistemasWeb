@@ -3,6 +3,7 @@
     Created on : 14/04/2018, 10:57:30
     Author     : bruno.szczuk
 --%>
+<%@page import="prova.obj.Tamanho"%>
 <%@page import="prova.obj.Sabor"%>
 <%@page import="prova.obj.Pizza"%>
 <%@page import="java.util.ArrayList"%>
@@ -42,7 +43,7 @@
         ArrayList<Sabor> sabores = new ArrayList<Sabor>();
         sabores.add(sab1);
         sabores.add(sab2);
-        p.setTamanho("M");
+        p.setTamanho(new Tamanho("M"));
         p.setSabores(sabores);
         pizzas.add(p);
     }
