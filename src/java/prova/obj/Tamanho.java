@@ -57,5 +57,11 @@ public class Tamanho implements Serializable{
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    @Override
+    public String toString() {
+        return "Tamanho{" + "descricao=" + descricao + ", sigla=" + sigla + ", qtSabores=" + qtSabores + '}';
+    }
+    
     
 }

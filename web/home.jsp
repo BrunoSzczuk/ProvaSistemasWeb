@@ -3,6 +3,8 @@
     Created on : 14/04/2018, 10:57:30
     Author     : bruno.szczuk
 --%>
+<%@page import="java.util.List"%>
+<%@page import="prova.dao.PizzaDAO"%>
 <%@page import="prova.obj.Tamanho"%>
 <%@page import="prova.obj.Sabor"%>
 <%@page import="prova.obj.Pizza"%>
@@ -31,23 +33,7 @@
         session.setAttribute("senha", "");
         throw new UsuarioInvalido();
     }
-
-    ArrayList pizzas = (ArrayList) application.getAttribute("pizzas");
-    if (pizzas == null) {
-        pizzas = new ArrayList();
-        Pizza p = new Pizza();
-        //Colocar uma pizza só pra preencher uma primeira tela
-        p.setId(1);
-        Sabor sab1 = new Sabor("Calabresa"), sab2 = new Sabor("Mussarela");
-
-        ArrayList<Sabor> sabores = new ArrayList<Sabor>();
-        sabores.add(sab1);
-        sabores.add(sab2);
-        p.setTamanho(new Tamanho("M"));
-        p.setSabores(sabores);
-        pizzas.add(p);
-    }
-    application.setAttribute("pizzas", pizzas);
+    List<Pizza> pizzas = PizzaDAO.listAll();
 %>
 <%@page errorPage="erro.jsp" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

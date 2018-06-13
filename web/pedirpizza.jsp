@@ -4,6 +4,8 @@
     Author     : Bruno
 --%>
 
+<%@page import="prova.obj.Sabor"%>
+<%@page import="prova.dao.SaborDAO"%>
 <%@page import="prova.obj.Tamanho"%>
 <%@page import="prova.dao.TamanhoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -30,17 +32,15 @@
 
                         <td>
                             <% for (Tamanho t : TamanhoDAO.listAll()) {
-                                    out.print("<input type=\"radio\" name=\"tamanho\" onchange=\"validarCampoTamanho();\" value=\"" + t.getSigla() + "\">" + t.getDescricao() + "<br/>");
+                                    out.println("<input type='radio' max='" + t.getQtSabores() + "' name='tamanho' onchange='validarCampoTamanho();' value='" + t.getSigla() + "'>" + t.getDescricao() + "<br/>");
                                 }
                             %>
-
                         </td>
                         <td>
-                            <input type="checkbox" onchange="validaSabores();" name="sabores" value="Calabresa"/>Calabresa <br/>
-                            <input type="checkbox" onchange="validaSabores();" name="sabores" value="Mussarela"/>Mussarela<br/>
-                            <input type="checkbox" onchange="validaSabores();" name="sabores" value="Bacon"/>Bacon<br/>
-                            <input type="checkbox" onchange="validaSabores();" name="sabores" value="Chocolate Branco"/>Chocolate Branco<br/>
-                            <input type="checkbox" onchange="validaSabores();" name="sabores" value="Chocolate Preto"/>Chocolate Preto<br/>
+                            <% for (Sabor s : SaborDAO.listAll()) {
+                                    out.println("<input type='checkbox' name='sabores' onchange='validaSabores();' value='" + s.getSabor() + "'>" + s.getSabor()+ "<br/>");
+                                }
+                            %>
                         </td>
                     </tr>
                 </table>

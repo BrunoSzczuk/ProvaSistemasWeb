@@ -21,6 +21,12 @@ public class Pizza {
     public Pizza() {
     }
 
+    public Pizza(int id, Tamanho tamanho, List<Sabor> sabores) {
+        this.id = id;
+        this.tamanho = tamanho;
+        this.sabores = sabores;
+    }
+
     public int getId() {
         return id;
     }
@@ -47,7 +53,7 @@ public class Pizza {
 
     @Override
     public String toString() {
-        return "Pizza "+ id + " - Tamanho " + tamanho + "\nSabores " + sabores;
+        return "Pizza N°: "+ id + " - Tamanho: " + tamanho.getSigla() + " - Sabores " + sabores;
     }
     
 }

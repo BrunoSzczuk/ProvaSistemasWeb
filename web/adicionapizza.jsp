@@ -3,11 +3,12 @@
     Created on : 14/04/2018, 21:22:56
     Author     : Bruno
 --%>
+<%@page import="prova.dao.PizzaDAO"%>
+<%@page import="prova.dao.TamanhoDAO"%>
 <%@page import="prova.obj.Sabor"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="prova.obj.Pizza"%>
 <%
-    ArrayList pizzas = (ArrayList) application.getAttribute("pizzas");
     Pizza p = new Pizza();
     String sabores[] = request.getParameterValues("sabores");
     String tamanho = request.getParameter("tamanho");
@@ -16,16 +17,14 @@
     } else if (tamanho == null) {
         throw new Exception("Nenhum tamanho de pizza foi selecionado");
     }
-    ArrayList sab = new ArrayList();
+    ArrayList<Sabor> sab = new ArrayList<Sabor>();
     for (int i = 0; i < sabores.length; i++) {
         sab.add(new Sabor(sabores[i]));
     }
     p.setSabores(sab);
-    p.setId(pizzas.size() + 1);
-    p.setTamanho(tamanho);
-    pizzas.add(p);
-    application.setAttribute("pizzas", pizzas);
-
+    p.setTamanho(TamanhoDAO.buscar(tamanho));
+    PizzaDAO.incluir(p);
+    
 %>
 <%@page  errorPage="erro.jsp" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

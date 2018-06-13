@@ -32,7 +32,7 @@ public class TamanhoDAO {
     public static List<Tamanho> listAll() throws Exception {
         List<Tamanho> result = new ArrayList<Tamanho>();
         try {
-            ResultSet rs = Conexao.getConnect().prepareStatement("select * from tamanho").executeQuery();
+            ResultSet rs = Conexao.getConnect().prepareStatement("select * from tamanho order by qt_sabores").executeQuery();
             while (rs.next()){
                 result.add(new Tamanho(rs.getString("descricao"), rs.getString("sigla"), rs.getInt("qt_sabores")));
             }
