@@ -62,7 +62,9 @@
             </tr>
 
         </table>
-        <input type="button" onclick="document.location = 'pedirpizza.jsp'" value="Pedir uma pizza">
+        <input type="button" onclick="document.location = 'pedirpizza.jsp'" value="Pedir uma pizza"><br/>
+        <input type="button" onclick="document.location = 'adicionasabor.jsp'" value="Adicionar um Sabor novo para venda"><br/>
+        <input type="button" onclick="document.location = 'adicionatamanho.jsp'" value="Adicionar um Tamano de pizza"><br/>
         <input type="button" onclick="document.location = 'index.jsp'" value="Voltar">
         <br/>
     </center>

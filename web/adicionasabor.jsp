@@ -14,22 +14,17 @@
     <body>
         <form name = "main" action="MainServlet" method="post">
             <center>
-                <h1>Sugestão de Sabor </h1>
+                <h1>Novo Sabor </h1>
                 <table>
                     <tr>
-                        <td><b>Nome:</b></td>  
+                        <td><b>Nome do sabor:</b></td>  
                         <td><input type="text" name = "nome"> </td>
                     </tr>
-                    <tr>
-                        <td><b>E-mail:</b></td>
-                        <td><input type="email" name="email"> </td>
-                    </tr>
-                    <tr>
-                        <td><b>Sabores:</b></td>
-                        <td><textarea name="sabores" rows="3" cols="32"></textarea></td>
-                    </tr>
+                    <input type="hidden" name="op" value="addSabor"/>
                 </table>
-                <button type="submit">Enviar </button>    
+                <button type="submit">Salvar </button>    
+                <input type="button" value="Voltar" 
+                       onclick="javascript:history.go(-1);"/>
                 <input type="button" value="Início" 
                        onclick="document.location = 'home.jsp';"/>
             </center>    

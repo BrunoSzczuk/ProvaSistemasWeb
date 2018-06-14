@@ -11,6 +11,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import prova.dao.SaborDAO;
+import prova.dao.TamanhoDAO;
+import prova.obj.Sabor;
+import prova.obj.Tamanho;
 
 /**
  *
@@ -30,9 +34,43 @@ public class MainServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String operacao = request.getParameter("op");
+        String url = "index.jsp";
+
+        if (operacao.equals("addSabor")) {
+            url = addSabor(request, response);
+        }else if (operacao.equals("addTamanho")){
+            url = add
+        }
+        request.getRequestDispatcher(url).forward(request, response);
         
     }
 
+    private static String addSabor(HttpServletRequest request, HttpServletResponse response) {
+        Sabor sabor = new Sabor();
+        try {
+            sabor.setSabor(request.getParameter("nome"));
+            SaborDAO.incluir(sabor);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "erro.jsp";
+        }
+        return "adicionadosucesso.jsp";
+    }
+
+    private static String addTamanho(HttpServletRequest request, HttpServletResponse response) {
+        Tamanho tamanho = new Tamanho();
+        try {
+            tamanho.setDescricao(request.getParameter("descricao"));
+            tamanho.setSigla(request.getParameter("sigla"));
+            tamanho.setQtSabores(Integer.parseInt(request.getParameter("qt_sabores")));
+            TamanhoDAO.incluir(tamanho);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "erro.jsp";
+        }
+        return "adicionadosucesso.jsp";
+    }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

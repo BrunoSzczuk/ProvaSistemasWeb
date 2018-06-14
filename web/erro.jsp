@@ -4,6 +4,7 @@
 <html>
     <head><title>Deu ruim!</title></head>
     <body>
+    <center>
 
         <h3>Página de erro</h3>
         <%
@@ -20,7 +21,7 @@
                 } else if (tipo.equals("prova.UsuarioInvalido")) {
                     causa = "Usuário ou senha inválida";
                     sugestao = "Insira um usuário válido (admin).";
-                } 
+                }
         %>
         <ul>
             <li>Tipo do erro: <b><%= tipo%></b>
@@ -34,5 +35,6 @@
         %>
         <input type="button" value="Voltar" 
                onclick="javascript:history.go(-1);"/>
-    </body>
+    </center>
+</body>
 </html>

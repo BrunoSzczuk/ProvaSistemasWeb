@@ -23,6 +23,7 @@ public class TamanhoDAO {
             PreparedStatement pr = Conexao.getStatement(sql);
             pr.setString(1, tamanho.getDescricao());
             pr.setString(2, tamanho.getSigla());
+            pr.setInt(3,tamanho.getQtSabores());
             pr.execute();
         }catch(Exception e){
             e.printStackTrace();

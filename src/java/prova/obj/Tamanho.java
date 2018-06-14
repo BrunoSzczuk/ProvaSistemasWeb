@@ -7,6 +7,7 @@
 package prova.obj;
 
 import java.io.Serializable;
+import prova.Util;
 
 /**
  *
@@ -55,7 +56,7 @@ public class Tamanho implements Serializable{
     }
 
     public void setDescricao(String descricao) {
-        this.descricao = descricao;
+        this.descricao = Util.toCamelCase(descricao.trim());
     }
 
     @Override
