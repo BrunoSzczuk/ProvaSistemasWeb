@@ -23,16 +23,25 @@
                     sugestao = "Insira um usuário válido (admin).";
                 }
         %>
-        <ul>
-            <li>Tipo do erro: <b><%= tipo%></b>
-            <li>Mensagem original: <b><%= exception.getMessage()%></b>
-            <li>Causa provável: <b><%= causa%></b>
-            <li>Sugestão: <b><%= sugestao%></b>
-        </ul>
+        <table border="2">
+            <tr>
+                <td>Tipo do erro: <b><%= tipo%></b>
+            </tr>
+            <tr>
+                <td>Mensagem original: <b><%= exception.getMessage()%></b
+            </tr>
+            <tr>
+                <td>Causa provável: <b><%= causa%></b>
+            </tr>
+            <tr>
+                <td>Sugestão: <b><%= sugestao%></b>
+            </tr>
+        </table>
         <%
             } else
                 out.println("<b>Nenhum erro localizado.</b>");
         %>
+        <br/>
         <input type="button" value="Voltar" 
                onclick="javascript:history.go(-1);"/>
     </center>

@@ -18,40 +18,45 @@ import prova.obj.Tamanho;
 public class TamanhoDAO {
 
     public static void incluir(Tamanho tamanho) throws Exception {
-        try{
-            String sql = String.format("  insert into tamanho(descricao, sigla, qt_sabores) values(?) ");
+        try {
+            if (tamanho.getDescricao().length() < 1 || tamanho.getSigla().length() < 1 || tamanho.getQtSabores() < 1) {
+                throw new Exception("Dados inválidos");
+            }
+            String sql = String.format("  insert into tamanho(descricao, sigla, qt_sabores) values(?,?,?) ");
             PreparedStatement pr = Conexao.getStatement(sql);
             pr.setString(1, tamanho.getDescricao());
             pr.setString(2, tamanho.getSigla());
-            pr.setInt(3,tamanho.getQtSabores());
+            pr.setInt(3, tamanho.getQtSabores());
+            System.out.println(tamanho);
             pr.execute();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
+            throw new Exception("Erro ao salvar tamanho");
         }
     }
 
-    public static List<Tamanho> listAll() throws Exception {
+    public static List<Tamanho> listAll() {
         List<Tamanho> result = new ArrayList<Tamanho>();
         try {
             ResultSet rs = Conexao.getConnect().prepareStatement("select * from tamanho order by qt_sabores").executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 result.add(new Tamanho(rs.getString("descricao"), rs.getString("sigla"), rs.getInt("qt_sabores")));
             }
         } catch (Exception e) {
-             e.printStackTrace();
+            e.printStackTrace();
         }
         return result;
     }
-    
-    public static Tamanho buscar(String id){
+
+    public static Tamanho buscar(String id) {
         Tamanho result = null;
         try {
-            ResultSet rs = Conexao.getConnect().prepareStatement("select * from tamanho where sigla = '"+id+"'").executeQuery();
-            while (rs.next()){
+            ResultSet rs = Conexao.getConnect().prepareStatement("select * from tamanho where sigla = '" + id + "'").executeQuery();
+            while (rs.next()) {
                 result = new Tamanho(rs.getString("descricao"), rs.getString("sigla"), rs.getInt("qt_sabores"));
             }
         } catch (Exception e) {
-             e.printStackTrace();
+            e.printStackTrace();
         }
         return result;
     }

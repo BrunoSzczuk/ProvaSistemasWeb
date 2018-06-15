@@ -19,8 +19,8 @@ public class Tamanho implements Serializable{
     int qtSabores;
 
     public Tamanho(String descricao, String sigla, int qtSabores) {
-        this.descricao = descricao;
-        this.sigla = sigla;
+        this.descricao = descricao.trim();
+        this.sigla = sigla.trim();
         this.qtSabores = qtSabores;
     }
 
@@ -33,8 +33,8 @@ public class Tamanho implements Serializable{
     }
 
     public Tamanho(String descricao, String sigla) {
-        this.descricao = descricao;
-        this.sigla = sigla;
+        this.descricao = descricao.trim();
+        this.sigla = sigla.trim();
     }
 
     public String getSigla() {
@@ -42,10 +42,10 @@ public class Tamanho implements Serializable{
     }
 
     public void setSigla(String sigla) {
-        this.sigla = sigla;
+        this.sigla = sigla.trim();
     }
     public Tamanho(String descricao) {
-        this.descricao = descricao;
+        this.descricao = descricao.trim();
     }
 
     public Tamanho() {

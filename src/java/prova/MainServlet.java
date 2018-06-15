@@ -6,7 +6,6 @@
 package prova;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,32 +32,34 @@ public class MainServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("charset=UTF-8");
         String operacao = request.getParameter("op");
         String url = "index.jsp";
 
-        if (operacao.equals("addSabor")) {
-            url = addSabor(request, response);
-        }else if (operacao.equals("addTamanho")){
-            url = add
+        switch (operacao) {
+            case "addSabor":
+                url = addSabor(request);
+                break;
+            case "addTamanho":
+                url = addTamanho(request);
+                break;
         }
-        request.getRequestDispatcher(url).forward(request, response);
-        
+        request.getServletContext().getRequestDispatcher("/" + url).forward(request, response);
+
     }
 
-    private static String addSabor(HttpServletRequest request, HttpServletResponse response) {
+    private static String addSabor(HttpServletRequest request) throws ServletException, IOException {
         Sabor sabor = new Sabor();
         try {
             sabor.setSabor(request.getParameter("nome"));
             SaborDAO.incluir(sabor);
         } catch (Exception e) {
-            e.printStackTrace();
-            return "erro.jsp";
+            throw new ServletException(e.getMessage());
         }
         return "adicionadosucesso.jsp";
     }
 
-    private static String addTamanho(HttpServletRequest request, HttpServletResponse response) {
+    private static String addTamanho(HttpServletRequest request) throws ServletException, IOException {
         Tamanho tamanho = new Tamanho();
         try {
             tamanho.setDescricao(request.getParameter("descricao"));
@@ -66,8 +67,7 @@ public class MainServlet extends HttpServlet {
             tamanho.setQtSabores(Integer.parseInt(request.getParameter("qt_sabores")));
             TamanhoDAO.incluir(tamanho);
         } catch (Exception e) {
-            e.printStackTrace();
-            return "erro.jsp";
+            throw new ServletException(e.getMessage());
         }
         return "adicionadosucesso.jsp";
     }

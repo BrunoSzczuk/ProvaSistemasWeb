@@ -19,12 +19,20 @@ public class SaborDAO {
 
     public static void incluir(Sabor sabor) throws Exception {
         String sql = String.format("  insert into sabor(nome) values(?) ");
-        PreparedStatement pr = Conexao.getStatement(sql);
-        pr.setString(1, sabor.getSabor());
-        pr.execute();
+        try{
+            if (sabor.getSabor().trim().length() <1){
+                throw new Exception("Sabor vazio");
+            }
+            PreparedStatement pr = Conexao.getStatement(sql);
+            pr.setString(1, sabor.getSabor());
+            pr.execute();
+        }catch(Exception e){
+            throw e;
+        }
     }
 
-    public static List<Sabor> listAll() throws Exception {
+    
+    public static List<Sabor> listAll() {
         List<Sabor> result = new ArrayList<Sabor>();
         try {
             ResultSet rs = Conexao.getConnect().prepareStatement("select * from sabor").executeQuery();

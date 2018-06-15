@@ -35,8 +35,7 @@ public class PizzaDAO {
     }
 
     public static List<Pizza> listAll() {
-
-        List<Pizza> result = new ArrayList<Pizza>();
+        List result = new ArrayList();
         try {
             ResultSet rs = Conexao.getConnect().prepareStatement("select distinct id,tamanho from pizza order by id").executeQuery();
             while (rs.next()) {

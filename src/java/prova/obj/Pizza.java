@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author bruno.szczuk
  */
-public class Pizza {
+public class Pizza  {
     private int id;
     private Tamanho tamanho;
     private List<Sabor> sabores;
